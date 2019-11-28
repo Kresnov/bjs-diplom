@@ -23,8 +23,10 @@ class Profile {
 	};
 
 	authorization(callback) {
+
 		let username = this.username;
-		let password = this.password;
+        let password = this.password;
+        
 		return ApiConnector.performLogin({ username, password }, (err, data) => {
 			console.log(`Authorization of user ${this.username}`);
 			callback(err, data);
