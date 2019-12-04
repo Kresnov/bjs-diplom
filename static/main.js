@@ -82,12 +82,12 @@ function main() {
 					console.log(`Error, can't authorize Ivan`);
 				} else {
 					console.log(`Ivan is authorized`);
-					Ivan.addMoney({currency: 'EUR', amount: 500}, (err, data) => {
+					Ivan.addMoney({currency: 'EUR', amount: 50}, (err, data) => {
 						if (err) {
 							console.log(`Error, can't add money to Ivan's wallet`);
 						} else {
 							console.log(`Added 500 Euro to Ivan`);
-							const targetAmount = Number(stocksInfo.EUR_NETCOIN) * 500;
+							const targetAmount = Number(stocksInfo.EUR_NETCOIN) * 50;
 							console.log(targetAmount); // проверяю какая сумма неткоинов получается
 							Ivan.convertMoney({fromCurrency: 'EUR', targetCurrency: 'NETCOIN', targetAmount: targetAmount}, (err, data) => {
 								if(err) {
@@ -99,11 +99,11 @@ function main() {
 										if(err) {
 											console.log(`Error, can't create user Alex`);
 										} else {
-											Ivan.transferMoney({to: `Alex`, amount: convertedAmount}, (err, data) => {
+											Ivan.transferMoney({to: 'alex', amount: targetAmount}, (err, data) => {
 												if(err) {
 													console.log(`Error, can't transfer money`);
 												} else {
-														console.log(`Alex now has ${convertedAmount} of NETCOINS`);
+														console.log(`Alex now has ${targetAmount} of NETCOINS`);
 												};
 											});
 										};
